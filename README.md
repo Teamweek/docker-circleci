@@ -1,31 +1,12 @@
 # Teamweek's Circle CI Docker Image
 
 ## Intro
-
-Our base CircleCI image.
-- Circle CI's Ruby docker image.
-- qt5 (for Capybara Webkit) installed from apt.
-- Node 8.9.1 (from Joyent's dockerfiles)
-- Chrome latest
-- Chromedriver latest
+- Circle CI's Ruby + Node docker image. (circleci/ruby:2.5.0-node)
+- Chrome 63.0.3239.108
+- Chromedriver 2.33
 
 ## Build
-
-    docker build .
-
-## Push to Dockerhub
-
-Push to GitHub. Branch builds will be tagged in Dockerhub as `teamweek/circleci:$BRANCH_NAME`
-
-## Release
-
-Merge to master and tag. Tagged builds will be tagged in Dockerhub as `teamweek/circleci:$TAG`
-
-Example
-
-    git tag 0.0.5
-    git push --tags
+`docker build .`
 
 ## Docker Hub
-
 [https://hub.docker.com/r/teamweek/circleci/](https://hub.docker.com/r/teamweek/circleci/)
