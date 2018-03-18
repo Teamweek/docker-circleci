@@ -1,7 +1,9 @@
 FROM circleci/ruby:2.5.0-node
-ADD ./chrome64_63.0.3239.108.deb /
 
 USER root
+
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+RUN echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
 
 RUN apt-get update
 RUN apt-get install -y \
@@ -16,10 +18,8 @@ RUN apt-get install -y \
     libnss3 \
     xdg-utils \
     libxtst6 \
-    lsb-release
-
-RUN dpkg -i /chrome64_63.0.3239.108.deb
-RUN apt-get install -f
+    lsb-release \
+    google-chrome-stable=65.0.3325.162-1
 
 # Install ChromeDriver
 RUN export CHROMEDRIVER_RELEASE=2.33 \

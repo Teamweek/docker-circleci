@@ -6,7 +6,7 @@
 - Chromedriver 2.33
 
 ## Build
-`docker build .`
+`docker build -t teamweek/circleci:latest .`
 
 ## Docker Hub
 [https://hub.docker.com/r/teamweek/circleci/](https://hub.docker.com/r/teamweek/circleci/)
