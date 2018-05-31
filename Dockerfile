@@ -19,10 +19,10 @@ RUN apt-get install -y \
     xdg-utils \
     libxtst6 \
     lsb-release \
-    google-chrome-stable=65.0.3325.162-1
+    google-chrome-stable
 
 # Install ChromeDriver
-RUN export CHROMEDRIVER_RELEASE=2.33 \
+RUN export CHROMEDRIVER_RELEASE=2.35 \
       && curl --silent --show-error --location --fail --retry 3 --output /tmp/chromedriver_linux64.zip "http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_RELEASE/chromedriver_linux64.zip" \
       && cd /tmp \
       && unzip chromedriver_linux64.zip \
