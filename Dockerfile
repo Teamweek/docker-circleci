@@ -21,9 +21,9 @@ RUN apt-get install -y \
     lsb-release \
     google-chrome-stable
 
-# Install ChromeDriver
-RUN export CHROMEDRIVER_RELEASE=73.0.3683.20 \
-      && curl --silent --show-error --location --fail --retry 3 --output /tmp/chromedriver_linux64.zip "http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_RELEASE/chromedriver_linux64.zip" \
+RUN export CHROME_RELEASE=`google-chrome --version | grep -iEo "[0-9.]{10,20}" | sed 's/\.[^.]*$//'` \
+      && export CHROME_DRIVER_RELEASE=`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_RELEASE}` \
+      && curl --silent --show-error --location --fail --retry 3 --output /tmp/chromedriver_linux64.zip "http://chromedriver.storage.googleapis.com/$CHROME_DRIVER_RELEASE/chromedriver_linux64.zip" \
       && cd /tmp \
       && unzip chromedriver_linux64.zip \
       && rm -rf chromedriver_linux64.zip \

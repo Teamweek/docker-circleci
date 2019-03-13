@@ -6,7 +6,7 @@
 
 ## Build
 
-`docker build -t teamweek/circleci:latest .`
+`docker build -t tmweek/circleci:latest .`
 
 ## Update on dockerhub
 
@@ -17,8 +17,8 @@ enter password found in 1pass
 
 ### push
 
-docker push teamweek/circleci:latest
+docker push tmweek/circleci:latest
 
 ## Docker Hub
 
-[https://hub.docker.com/r/teamweek/circleci/](https://hub.docker.com/r/teamweek/circleci/)
+[https://hub.docker.com/r/teamweek/circleci/](https://hub.docker.com/r/tmweek/circleci/)
